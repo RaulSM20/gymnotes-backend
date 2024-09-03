@@ -48,7 +48,7 @@ public class GymService {
         return routineExerciseRepository.save(routineExercise);
     }
 
-    public RoutineExercise addExerciseToRoutine(Integer routineId, Integer exerciseId, int numSeries, int numRep, int rir) {
+    public RoutineExercise addExerciseToRoutine(Integer routineId, Integer exerciseId, int numSeries, int numRep, int rir, String session) {
         Routine routine = routineRepository.findById(routineId).orElseThrow(() -> new RuntimeException("Routine not found"));
         Exercise exercise = exerciseRepository.findById(exerciseId).orElseThrow(() -> new RuntimeException("Exercise not found"));
 
@@ -58,6 +58,7 @@ public class GymService {
                 .numSeries(numSeries)
                 .numRep(numRep)
                 .rir(rir)
+                .session(session)
                 .build();
 
         return routineExerciseRepository.save(routineExercise);

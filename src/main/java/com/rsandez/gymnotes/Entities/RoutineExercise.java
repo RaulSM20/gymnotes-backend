@@ -46,4 +46,7 @@ public class RoutineExercise {
 
     @Column
     private int rir;
+
+    @Column
+    private String session;
 }

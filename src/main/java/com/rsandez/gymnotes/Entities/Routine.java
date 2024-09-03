@@ -1,6 +1,7 @@
 package com.rsandez.gymnotes.Entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -41,5 +43,9 @@ public class Routine {
     @OneToMany(mappedBy = "routine")
     @JsonManagedReference
     private List<RoutineExercise> routineExercise;
+
+    @ManyToMany(mappedBy = "routines")
+    @JsonManagedReference
+    private List<User> users;
 
 }

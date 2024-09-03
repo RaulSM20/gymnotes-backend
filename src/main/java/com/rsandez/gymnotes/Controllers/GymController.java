@@ -54,8 +54,9 @@ public class GymController {
             @RequestParam Integer exerciseId,
             @RequestParam int numSeries,
             @RequestParam int numRep,
-            @RequestParam int rir) {
-        return gymService.addExerciseToRoutine(routineId, exerciseId, numSeries, numRep, rir);
+            @RequestParam int rir,
+            @RequestParam String session) {
+        return gymService.addExerciseToRoutine(routineId, exerciseId, numSeries, numRep, rir, session);
     }
    
 }
